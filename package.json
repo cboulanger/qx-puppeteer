@@ -1,0 +1,21 @@
+{
+  "name": "qx-puppeteer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest ./tests",
+    "postinstall": "bash postinstall.sh"
+  },
+  "author": "Christian Boulanger (cboulanger)",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-preset-env": "^1.6.1",
+    "http-server": "^0.10.0",
+    "jest": "^21.2.1",
+    "puppeteer": "^0.12.0",
+    "qx-cli": "^0.1.30"
+  }
+}
