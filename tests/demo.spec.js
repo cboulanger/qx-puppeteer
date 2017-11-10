@@ -13,8 +13,8 @@ const url  = `http://${host}:${port}/${build_target}-output/demo/`;
 let page;
 let browser;
 let server;
-const width = 600;
-const height = 400;
+const width = 1000;
+const height = 600;
 
 beforeAll(async () => {
   jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
@@ -42,12 +42,11 @@ describe("Testing the frontend",  () => {
   test("assert that <title> is correct", async () => {
     const title = await page.title();
     expect(title).toBe("Qooxdoo Application");
-  }); //
+  }); 
   test("click on the button", async () => {
-    //
-    await page.click("div.qx-button-box");
-    await page.waitForSelector("div.qx-window-active");
-    
+    await page.click("[data-widget-id=button1]");
+    let node = await page.waitForSelector("[data-widget-id=dialog1]");
+    console.log(node);
   }); 
 });
   

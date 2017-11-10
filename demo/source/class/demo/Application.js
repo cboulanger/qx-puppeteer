@@ -62,9 +62,18 @@ qx.Class.define("demo.Application",
       // Add button to document at fixed coordinates
       doc.add(button1, {left: 100, top: 50});
 
-      // Add an event listener
+      // Add an event listener dispatched when button is clicked
       button1.addListener("execute", function(e) {
-        dialog.Dialog.alert("Hello World!");
+        let dialog1 = dialog.Dialog.alert("Hello World!");
+        // add data element
+        dialog1.addListener("appear", ()=>{
+          dialog1.getContentElement().getDomElement().dataset.widgetId = "dialog1";
+        });
+      });
+
+      // add data element
+      button1.addListener("appear", ()=>{
+        button1.getContentElement().getDomElement().dataset.widgetId = "button1";
       });
     }
   }
