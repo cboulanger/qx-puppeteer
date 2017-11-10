@@ -16,6 +16,7 @@
     "http-server": "^0.10.0",
     "jest": "^21.2.1",
     "puppeteer": "^0.12.0",
-    "qx-cli": "^0.1.30"
+    "qx-cli": "^0.1.30",
+    "qxcompiler": "^0.1.26"
   }
 }
