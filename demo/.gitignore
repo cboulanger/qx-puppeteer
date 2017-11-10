@@ -1,4 +1,5 @@
 build-output/
 source-output/
+contrib/
 db.json
 resource-db.json
