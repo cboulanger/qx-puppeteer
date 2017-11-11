@@ -119,11 +119,8 @@ qx.Mixin.define("demo.MObjectId",
       var objects = [];
       for (var objectId in registry[objectId] ) {
         objects.push(registry[objectId]);
-      } 
+      }
+      return objects;
     }
-
-
-
-
   }
 });

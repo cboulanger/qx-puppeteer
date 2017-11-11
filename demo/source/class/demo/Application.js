@@ -41,7 +41,7 @@ qx.Class.define("demo.Application",
 
       // Create a button
       var button1 = new qx.ui.form.Button("First Button", "demo/test.png");
-      button1.set({objectId:"button1",ownerId:"demo"});
+      button1.set({ownerId:"demo",objectId:"button1"});
 
       // Document is the application root
       var doc = this.getRoot();
@@ -53,7 +53,7 @@ qx.Class.define("demo.Application",
       button1.addListener("execute", function(e) {
         let dialog1 = dialog.Dialog.alert("Hello World!");
         // add data element
-        dialog1.set({objectId:"dialog1",ownerId:"demo"});
+        dialog1.set({ownerId:"demo",objectId:"dialog1"});
       });
     }
   }
