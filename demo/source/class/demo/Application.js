@@ -17,8 +17,6 @@ qx.Class.define("demo.Application",
 {
   extend : qx.application.Standalone,
 
-
-
   /*
   *****************************************************************************
      MEMBERS
@@ -38,23 +36,12 @@ qx.Class.define("demo.Application",
       // Call super class
       this.base(arguments);
 
-      // Enable logging in debug variant
-      if (qx.core.Environment.get("qx.debug"))
-      {
-        // support native logging capabilities, e.g. Firebug for Firefox
-        qx.log.appender.Native;
-        // support additional cross-browser console. Press F7 to toggle visibility
-        qx.log.appender.Console;
-      }
-
-      /*
-      -------------------------------------------------------------------------
-        Below is your actual application code...
-      -------------------------------------------------------------------------
-      */
+      // Patch qx.core.Object to support ownerId/objectId
+      qx.Class.include(qx.core.Object,demo.MObjectId);
 
       // Create a button
       var button1 = new qx.ui.form.Button("First Button", "demo/test.png");
+      button1.set({objectId:"button1",ownerId:"demo"});
 
       // Document is the application root
       var doc = this.getRoot();
@@ -66,14 +53,7 @@ qx.Class.define("demo.Application",
       button1.addListener("execute", function(e) {
         let dialog1 = dialog.Dialog.alert("Hello World!");
         // add data element
-        dialog1.addListener("appear", ()=>{
-          dialog1.getContentElement().getDomElement().dataset.widgetId = "dialog1";
-        });
-      });
-
-      // add data element
-      button1.addListener("appear", ()=>{
-        button1.getContentElement().getDomElement().dataset.widgetId = "button1";
+        dialog1.set({objectId:"dialog1",ownerId:"demo"});
       });
     }
   }

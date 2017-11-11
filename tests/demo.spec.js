@@ -32,7 +32,7 @@ beforeAll(async () => {
     await page.setViewport({ width, height });
     console.info(`Navigating to ${url}...`);
     await page.goto(url);
-    console.info(`Opened ${url}...`);  
+    console.info(`Page loaded.`);  
   } catch(e) {
     console.error(e);
   }
@@ -44,12 +44,11 @@ describe("Testing the frontend",  () => {
     expect(title).toBe("Qooxdoo Application");
   }); 
   test("click on the button", async () => {
-    await page.click("[data-widget-id=button1]");
-    let node = await page.waitForSelector("[data-widget-id=dialog1]");
-    console.log(node);
+    await page.click("[data-owner-id=demo][data-object-id=button1]");
+    await page.$("[data-owner-id=demo][data-object-id=dialog1]");
   }); 
 });
   
 afterAll(async() => {
-  //await browser.close();
+  await browser.close();
 });
